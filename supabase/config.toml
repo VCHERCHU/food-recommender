@@ -1,0 +1,15 @@
+# Minimal Supabase CLI config. `supabase init` would generate a fuller one;
+# this is enough for `supabase functions deploy` and `supabase db push`.
+project_id = "whats-for-makan"
+
+[api]
+enabled = true
+port = 54321
+schemas = ["public"]
+
+[db]
+port = 54322
+major_version = 15
+
+[functions.places]
+verify_jwt = true
