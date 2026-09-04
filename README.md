@@ -27,6 +27,16 @@ npm run build
 npm run check:secrets   # asserts no Google key or endpoint is in dist/
 ```
 
+## Deploy to GitHub Pages
+
+`.github/workflows/pages.yml` builds and publishes on every push to `main` (and the current
+development branch), or on demand from the Actions tab. One-time setup in the repo:
+**Settings → Pages → Build and deployment → Source: GitHub Actions.**
+
+The site then lives at `https://<owner>.github.io/food-recommender/`. To ship live ratings, add
+`VITE_SUPABASE_URL` and `VITE_SUPABASE_ANON_KEY` as repository **variables** (not secrets — they
+are public by design). Without them the Pages build runs on the built-in stall list.
+
 ## Connect Supabase (for live ratings)
 
 1. Create a Supabase project, then link and push the schema and seed:
