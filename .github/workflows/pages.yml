@@ -2,7 +2,7 @@ name: Deploy to GitHub Pages
 
 on:
   push:
-    branches: [main, claude/new-session-68z5ts]
+    branches: [main]
   workflow_dispatch:
 
 permissions:
@@ -35,8 +35,6 @@ jobs:
           VITE_SUPABASE_ANON_KEY: ${{ vars.VITE_SUPABASE_ANON_KEY }}
       - run: npm run check:secrets
       - uses: actions/configure-pages@v5
-        with:
-          enablement: true   # creates the Pages site (source: GitHub Actions) if it doesn't exist yet
       - uses: actions/upload-pages-artifact@v3
         with:
           path: dist

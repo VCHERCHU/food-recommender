@@ -29,9 +29,12 @@ npm run check:secrets   # asserts no Google key or endpoint is in dist/
 
 ## Deploy to GitHub Pages
 
-`.github/workflows/pages.yml` builds and publishes on every push to `main` (and the current
-development branch), or on demand from the Actions tab. One-time setup in the repo:
-**Settings → Pages → Build and deployment → Source: GitHub Actions.**
+`.github/workflows/pages.yml` builds and publishes on every push to `main`, or on demand from the
+Actions tab. The repo must be public (or on a paid plan) with
+**Settings → Pages → Build and deployment → Source: GitHub Actions**.
+
+Deploys run from `main` only, because GitHub restricts the `github-pages` environment to the
+default branch.
 
 The site then lives at `https://<owner>.github.io/food-recommender/`. To ship live ratings, add
 `VITE_SUPABASE_URL` and `VITE_SUPABASE_ANON_KEY` as repository **variables** (not secrets — they
